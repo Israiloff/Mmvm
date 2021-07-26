@@ -1,4 +1,4 @@
-﻿namespace Mmvm.Net.Navigation.Enums
+﻿namespace Israiloff.Mmvm.Net.Navigation.Enums
 {
     public enum ElementState
     {

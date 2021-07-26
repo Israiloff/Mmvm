@@ -1,7 +1,7 @@
 ﻿using System;
 using Israiloff.Mmvm.Net.Container.Attributes;
 
-namespace Mmvm.Net.Navigation.Attributes
+namespace Israiloff.Mmvm.Net.Navigation.Attributes
 {
     /// <summary>
     /// Definition of page, which will be acted in navigation process 

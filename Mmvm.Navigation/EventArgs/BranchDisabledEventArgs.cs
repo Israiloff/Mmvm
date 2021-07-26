@@ -1,6 +1,6 @@
 ﻿using Israiloff.Mmvm.Net.Core.Model.NavigationEngine.StructuralModels;
 
-namespace Mmvm.Net.Navigation.EventArgs
+namespace Israiloff.Mmvm.Net.Navigation.EventArgs
 {
     public class BranchDisabledEventArgs
     {

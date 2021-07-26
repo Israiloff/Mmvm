@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Israiloff.Mmvm.Net.Container.Model;
+using Israiloff.Mmvm.Net.Mvvm.Core.Model;
 
 namespace Israiloff.Mmvm.Net.Container.Configs
 {

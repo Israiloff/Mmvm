@@ -1,6 +1,6 @@
-﻿using Mmvm.Net.Navigation.EventArgs;
+﻿using Israiloff.Mmvm.Net.Navigation.EventArgs;
 
-namespace Mmvm.Net.Navigation.Delegates
+namespace Israiloff.Mmvm.Net.Navigation.Delegates
 {
     public delegate void BeforePageChangeEventHandler(object sender, BeforeNavigationEventArgs e);
 }

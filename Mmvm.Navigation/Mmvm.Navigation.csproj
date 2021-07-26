@@ -7,7 +7,7 @@
         <ProjectGuid>{A681F501-6486-422C-9650-47DA48BFCA17}</ProjectGuid>
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>Mmvm.Net.Navigation</RootNamespace>
+        <RootNamespace>Israiloff.Mmvm.Net.Navigation</RootNamespace>
         <AssemblyName>Mmvm.Navigation</AssemblyName>
         <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>

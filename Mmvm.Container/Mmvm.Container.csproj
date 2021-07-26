@@ -46,9 +46,14 @@
         <Compile Include="Attributes\ServiceAttribute.cs" />
         <Compile Include="Configs\IContainerConfig.cs" />
         <Compile Include="Enums\LifetimeScope.cs" />
-        <Compile Include="Model\IMapperProfile.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="Services\IocContainer\IIocContainer.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\Mmvm.Mvvm.Core\Mmvm.Mvvm.Core.csproj">
+        <Project>{36792182-2bd2-4a63-92af-f6086c236463}</Project>
+        <Name>Mmvm.Mvvm.Core</Name>
+      </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

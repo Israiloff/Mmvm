@@ -1,9 +1,9 @@
 ﻿using Israiloff.Mmvm.Net.Core.Model.NavigationEngine;
 using Israiloff.Mmvm.Net.Core.Model.NavigationEngine.StructuralModels;
-using Mmvm.Net.Navigation.Delegates;
-using Mmvm.Net.Navigation.Enums;
+using Israiloff.Mmvm.Net.Navigation.Delegates;
+using Israiloff.Mmvm.Net.Navigation.Enums;
 
-namespace Mmvm.Net.Navigation.Services
+namespace Israiloff.Mmvm.Net.Navigation.Services
 {
     /// <summary>
     /// Navigation engine for manage and control GUI's navigation 

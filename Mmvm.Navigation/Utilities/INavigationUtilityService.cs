@@ -1,6 +1,6 @@
 ﻿using Israiloff.Mmvm.Net.Core.Model.NavigationEngine;
 
-namespace Mmvm.Net.Navigation.Utilities
+namespace Israiloff.Mmvm.Net.Navigation.Utilities
 {
     public interface INavigationUtilityService
     {
