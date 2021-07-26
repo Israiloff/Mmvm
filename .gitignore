@@ -1,0 +1,14 @@
+bin/
+obj/
+/packages/
+riderModule.iml
+/_ReSharper.Caches/
+/.idea/.idea.MMVM/.idea/codeStyles/codeStyleConfig.xml
+/.idea/.idea.MMVM/.idea/contentModel.xml
+/.idea/.idea.MMVM/.idea/encodings.xml
+/.idea/.idea.MMVM/.idea/indexLayout.xml
+/.idea/.idea.MMVM/.idea/modules.xml
+/.idea/.idea.MMVM/.idea/projectSettingsUpdater.xml
+/.idea/.idea.MMVM/.idea/vcs.xml
+/.idea/.idea.MMVM/.idea/workspace.xml
+/MMVM.sln.DotSettings.user
