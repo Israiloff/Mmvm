@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 // ReSharper disable IdentifierTypo
 
-namespace Israiloff.Mmvm.Net.Core.DataAccessLayer.Services
+namespace Israiloff.Mmvm.Net.Dal.Services
 {
     public interface IDalService<TDto> : IDisposable where TDto : class
     {

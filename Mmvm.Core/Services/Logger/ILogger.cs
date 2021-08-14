@@ -1,5 +1,5 @@
 ﻿using System;
-using Israiloff.Mmvm.Net.Core.Properties;
+using JetBrains.Annotations;
 
 namespace Israiloff.Mmvm.Net.Core.Services.Logger
 {
