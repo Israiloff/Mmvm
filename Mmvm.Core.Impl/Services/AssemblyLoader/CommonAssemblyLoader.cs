@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using Autofac.Util;
 using Israiloff.Mmvm.Net.Container.Attributes;
 using Israiloff.Mmvm.Net.Core.Services.AssemblyLoader;
@@ -31,7 +32,7 @@ namespace Israiloff.Mmvm.Net.Core.Impl.Services.AssemblyLoader
 
         #region IAssemblyLoader impl
 
-        public LoadResultDto Load(ICollection<string> assemblyNamesContainsText)
+        public LoadResultDto Load(string moduleRegex)
         {
             Logger.Info("Load method started");
 
@@ -39,17 +40,17 @@ namespace Israiloff.Mmvm.Net.Core.Impl.Services.AssemblyLoader
             var loadedPaths = ExtractAssemblyPath(loadedAssemblies);
             var referencedPaths = GetAllLocalDllPaths();
             var loadingAssemblies =
-                FilterLoadingAssemblies(referencedPaths, loadedPaths, assemblyNamesContainsText);
+                FilterLoadingAssemblies(referencedPaths, loadedPaths, moduleRegex);
 
             if (loadingAssemblies.Count > 0)
             {
                 Logger.Debug("Not loaded assemblies count : {0}. Assemblies will be load", loadingAssemblies.Count);
                 LoadAssemblies(loadingAssemblies).ForEach(loadedAssemblies.Add);
-                return MapAssembliesToResultDto(loadedAssemblies, assemblyNamesContainsText);
+                return MapAssembliesToResultDto(loadedAssemblies, moduleRegex);
             }
 
             Logger.Warn("All assemblies already loaded. Operation terminated");
-            return MapAssembliesToResultDto(loadedAssemblies, assemblyNamesContainsText);
+            return MapAssembliesToResultDto(loadedAssemblies, moduleRegex);
         }
 
         public ICollection<Assembly> GetAllLoadedAssemblies()
@@ -73,12 +74,12 @@ namespace Israiloff.Mmvm.Net.Core.Impl.Services.AssemblyLoader
         #region Private methods
 
         private LoadResultDto MapAssembliesToResultDto(IEnumerable<Assembly> assemblies,
-            IEnumerable<string> assembliesNameParts)
+            string moduleRegex)
         {
             Logger.Debug("MapAssembliesToResult started");
 
             var filteredAssemblies = assemblies
-                .Where(assembly => CheckContainsPartialItem(assembliesNameParts, assembly.FullName))
+                .Where(assembly => CheckContainsPartialItem(moduleRegex, assembly.FullName))
                 .ToList();
 
             var result = new LoadResultDto(GetInjectableTypes(filteredAssemblies),
@@ -134,21 +135,21 @@ namespace Israiloff.Mmvm.Net.Core.Impl.Services.AssemblyLoader
         }
 
         private List<string> FilterLoadingAssemblies(ICollection<string> referencedPaths,
-            ICollection<string> loadedPaths, IEnumerable<string> assemblyNamesContainsText)
+            ICollection<string> loadedPaths, string moduleRegex)
         {
             Logger.Debug("FilterLoadingAssemblies started");
             var result = referencedPaths
                 .Where(referenced => CheckNotContainsItem(loadedPaths, referenced) &&
-                                     CheckContainsPartialItem(assemblyNamesContainsText, referenced))
+                                     CheckContainsPartialItem(moduleRegex, referenced))
                 .ToList();
             Logger.Debug("Not loaded assemblies count : {0}", result.Count);
             return result;
         }
 
-        private bool CheckContainsPartialItem(IEnumerable<string> partialElements, string item)
+        private bool CheckContainsPartialItem(string moduleRegex, string item)
         {
             Logger.Trace("CheckContainsItem started");
-            return (partialElements?.Any(item.Contains) ?? false);
+            return Regex.IsMatch(item, moduleRegex);
         }
 
         private bool CheckNotContainsItem(IEnumerable<string> elements, string item)

@@ -24,9 +24,9 @@ namespace Israiloff.Mmvm.Net.Mvvm.Core.Impl.Services.ApplicationInitializer
 
         #region IApplicationInitializer impl
 
-        public INavigationService Initialize(ICollection<string> assemblyNamesContains, IMapperProfile profile)
+        public INavigationService Initialize(string moduleRegex, IMapperProfile profile)
         {
-            var types = InitializeAppResources(assemblyNamesContains);
+            var types = InitializeAppResources(moduleRegex);
 
             var container = new ContainerConfig()
                 .Config
@@ -43,10 +43,10 @@ namespace Israiloff.Mmvm.Net.Mvvm.Core.Impl.Services.ApplicationInitializer
 
         #region Private methods
 
-        private ICollection<Type> InitializeAppResources(ICollection<string> assemblyNamesContainsText)
+        private ICollection<Type> InitializeAppResources(string moduleRegex)
         {
             Logger.Debug("Adding VM binding dictionary to merged dictionaries");
-            var types = new CommonAssemblyLoader(Logger).Load(assemblyNamesContainsText)?.LoadedTypes;
+            var types = new CommonAssemblyLoader(Logger).Load(moduleRegex)?.LoadedTypes;
             return types;
         }
 

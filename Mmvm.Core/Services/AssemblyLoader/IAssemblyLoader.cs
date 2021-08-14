@@ -7,7 +7,7 @@ namespace Israiloff.Mmvm.Net.Core.Services.AssemblyLoader
 {
     public interface IAssemblyLoader
     {
-        LoadResultDto Load(ICollection<string> assemblyNamesContainsText);
+        LoadResultDto Load(string moduleRegex);
 
         ICollection<Assembly> GetAllLoadedAssemblies();
 
